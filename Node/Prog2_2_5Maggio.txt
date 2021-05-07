@@ -1,0 +1,97 @@
+FINALIZZAZIONE ES GARA VEICOLI
+
+IMPLEMENTAZIONE ORDINAMENTO CON IL BUBBLESORT , UTILIZZANDO L'OVERLOAD DEGLI OPERATORI
+> , < , ==
+In questo modo riusciamo ad implementare l'ordinamento.
+E metodo stampa classifica, rivedere a fare commit sul GITHUB.
+
+LISTE una struttura dati che consente di conservare elementi.
+Nodi , elementi di una lista divisi in parte dati e link al nodo successivo(puntatore)
+LISTA SEMPLICEMENTE LINKATA.
+
+LISTA DOPPIAMENTE LINKATA il nodo oltre ad avere link al nodo successivo , esiste un link al nodo precedente.
+
+HEAD elemento che non è un nodo ma un puntatore a un nodo HEAD *Nodo , punta al primo elemeno della lista
+HEAD = &primo_nodo_della_lista
+
+
+COSA POSSO FARE CON UNA LISTA?
+1- INSERIRE UN NUOVO ELEMENTO
+2- ELIMINARE UN ELEMENTO
+3- RICERCA DI UN ELEMENTO
+3a- RICERCA DEL MASSIMO
+3b- RICERCA DEL MINIMO
+4- MODIFICA DI UN ELEMENTO
+
+EDITING(4,1,2)  SEARCH(3,3a,3b)
+
+UNA LISTA VUOTA AVRA' IL PUNTATORE HEAD=NIL
+a. INSERT 10             a. HEAD -> NIL
+                            -creo un nodo con valore 10
+                            -HEAD punta al nuovo nodo.
+
+b. INSERT 15             b. Creo un nodo con val. 15    
+                            -parto da HEAD
+                            -trovo NIL e faccio puntare al nodo 10 il nodo 15 (INSERIMENTO IN CODA)                
+c. INSERT 20                  ==
+d. INSERT 5                   ==
+
+e. DELETE 15                 e. 
+                                -STRATEGIA 1 previsione del futuro
+                                 look foward to next DOMANDA SE IL NODO SUCCESSIVO ==15.
+                                 
+                                 Creare un puntatore ptr che punta a HEAD
+
+                                 1. if (head.value==15) DELETE HEAD;
+
+                                 2. else creo puntatore current --> head
+
+                                 3. if(current.next.value == 15) 
+
+                                 4. current.next = current.next.next; 
+              
+                                 5. DELETE 15
+                             
+
+                                -STRATEGIA 2 aiuto da casa (APPROCCIO PIU' LINEARE CHE PREFERISCE IL PROF)
+                                 NODO tmp che è sempre un passo indietro al nodo interrogato.
+
+                                 1. due puntatori current e prev. Se current -> HEAD   prev->NULL current.value==15? NO
+                                  prev->current , current->current.next
+            
+                                 2. current.value==15? SI
+                                    prev.next=current.next , DELETE 15.
+f. EDIT 10 -> 12
+
+
+
+
+
+NODO                                
+-value : T
+-next  : Nodo *
+
++Nodo()
++Nodo(T value)
++Nodo(T value,Nodo* next)
++next() : Nodo*
++value() : T
++setNext(Nodo*) : void
++setValue(T value) : void
++toString(): std::string
+
+
+LISTA
+-head : Nodo<T>*
+-lunghezza : int
+
++Lista()
++Lista(Nodo<T>* head)
++insert(Nodo<T>* n) : void
++insert(T value) : void
++search(T value) : Node<T>*
++delete(T value) : void
++min()
++max()
+
+
