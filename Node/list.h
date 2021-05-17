@@ -36,6 +36,83 @@ class List{
 			this->insert(temp);
 		}
 		
+		void insertInOrder(T value){ //INSERIMENTO ORDINATO
+			Node<T> * temp = new Node<T>(value);
+			
+			if(head == NULL){
+				this->insert(temp);
+				return;
+			}
+			
+			if(head->getValue() >= value){
+				temp->setNext(head);
+				head = temp;
+				length++;
+				return;
+			}
+		
+			
+			Node <T> * prev = head;
+			Node <T> * current = head->getNext();
+			
+			while(current != NULL) {
+				
+				if(prev->getValue() < value && current->getValue() >= value){
+					prev->setNext(temp);
+					temp->setNext(current);
+					length++;
+					return;
+				}
+				else{
+					current = current->getNext();
+					prev = prev->getNext();
+				}
+			}
+			
+			prev->setNext(temp);
+			length++;
+			return;
+		}
+		
+		bool search(T value) {
+			Node<T> * temp = head;
+			if(head == NULL){
+				return false;
+			}
+			
+			while(temp != NULL) {
+				if(temp->getValue() == value){
+					return true;
+				}
+				temp = temp->getNext();
+			}
+			return false;
+		}
+		
+		Node<T> * deleteNode(T value){
+			if(this->search(value)) {
+				if(head->getValue() == value){
+					Node <T> * tmp = head;
+					head = head->getNext();
+					length--;
+					return tmp;
+				}
+				Node<T> * prev = head;
+				Node<T> * current = head->getNext();
+		        while(current != NULL){
+				     if(current->getValue() == value){
+					     prev->setNext(current->getNext());
+					     length--;
+					     return current;
+			            }
+			            prev = current;
+			            current = current->getNext();
+		            }
+			}
+			
+			return NULL;
+		}
+		
 		int getLength(){
 			return this->length;
 		}
@@ -44,8 +121,8 @@ class List{
 			return this->head;
 		}
 		
-		friend ostream& operator<<(ostream& out, List<T> l) {
-			out<<"Lista head = " <<l.head<<endl;
+		friend ostream& operator<<(ostream& out, const List<T>& l) {
+			out<<"Lista head = " <<l.head<<" Lunghezza: "<<l.length<<endl;
 			Node<T> * current = l.head;
 			while(current != NULL) {
 				out<<" \t"<<current->toString()<<endl;

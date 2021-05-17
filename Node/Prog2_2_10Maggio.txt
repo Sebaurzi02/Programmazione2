@@ -1,0 +1,46 @@
+INSERIMENTO ORDINATO LISTA implementato correttamente
+
+Due puntatori uno al predecessore e uno al nodo corrente
+
+*prev 
+*current
+
+1. prev = head;
+   current = head->getNext();
+   prev < N
+   current >= N     // Condizioni per l'inserimento
+
+2. prev = 3
+   current = 7  //Condizioni verificate INSERIRE QUI
+   N.next=current;
+   prev.next=N;
+
+ELIMINAZIONE DI UN NODO PER VALORE implementato correttamente
+
+3 --> 5 -->7
+prev.next = current.next //eliminazione del nodo 5
+
+if(head->getValue() == value) head = head->getnext(); //eliminazione del nodo 3
+
+
+CREAZIONE LISTA DI STUDENTI composta da oggetti della classe STUDENTE cosi' definita:
+
+STUDENTE
+-cognome : string
+-nome : string
+-eta : int
+-matricola : string
+___________________
++getter()
++setter()
+
+per inserire gli studenti in una lista dobbiamo avere un modo per confrontarli
+>,<,== quindi facciamo un overload di questi operatori
+1. cognome
+2. nome
+3. matricola
+4. eta
+
+List<Studente>
+Node<Studente>  value sarà di tipo Studente, quindi si deve andara a ridefinire l'operatore di ridirezione per la classe studente.
+
