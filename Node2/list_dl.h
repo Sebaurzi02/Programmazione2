@@ -93,6 +93,46 @@ class ListDL {
 			return;		
 		}
 		
+		void deleteValue(T value){
+			
+			if(head == NULL && tail == NULL){
+				cout<< "Errore: empty list "<<endl;
+				return;
+			}
+			
+			NodeDL<T> * cur = head;
+			while(cur != NULL && cur->getValue() != value){
+				cur = cur->getNext();
+			}
+			
+			if(cur == NULL) {
+				cout<< "Errore: value "<< value << " not found." <<endl;
+				return;
+			}
+			
+			if(cur != head) {
+				cur->getPrev()->setNext(cur->getNext());
+			}
+			
+			if(cur != tail) {
+				cur->getNext()->setPrev(cur->getPrev());
+				
+			}
+			
+			length--;
+			
+			if(cur == head) {
+				head = head->getNext();
+			}
+			
+			if(cur == tail) {
+				tail = tail->getPrev();
+				
+			}
+			
+			delete cur;
+		}
+		
 		friend ostream& operator<<(ostream& out, const ListDL<T> list) {
 			out << "Lista di lunghezza " <<list.length << ", head = "<< list.head << " ,tail = " << list.tail <<endl;
 			NodeDL<T> * cur = list.head;
