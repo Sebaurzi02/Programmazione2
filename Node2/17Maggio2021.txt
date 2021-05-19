@@ -1,0 +1,31 @@
+LISTA DOPPIAMENTE LINKATA
+
+metodo isEmpty() { return (head==NULL);}
+
+NODO SPECIALE(NODO SENTINELLA) NIL nodo nullo , no value val=NULL ma avremmo un prev e un next.
+
+prev = tail e next = head per il nodo NIL
+
+Per andare dalla testa alla cosa posso
+cur = head;
+1) while ( cur != NULL)
+         cur = cur.next;    alla fine avrò current= tail
+
+2) head.prev = NIL.prev   (head.p.p=tail)
+
+Per andare dalla coda alla testa
+cur = tail;
+
+1) while(cur.prev != NULL)
+        cur = cur.prev;     alla fine avrò current = head
+
+2) tail.n = NIL.next  (tail.n.n == head)
+
+
+typeof(nodo NIL) == typeof(NodoDL)
+
+creo il nodo NIL nella classe che implementa la lista
+
+INSERIMENTO IN TESTA
+INSERIMENTO IN CODA
+INSERIMENTO ORDINATO
