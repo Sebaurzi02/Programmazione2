@@ -1,0 +1,34 @@
+Code e Pile sono strutture dati
+che si distinguono dalla rimozione di elementi
+
+
+Code = FIFO
+PILE = Last In First Out
+
+Operazione ENQUEUE , DEQUEUE Code tempo costante o nel caso peggiore lineare.
+Operazione PUSH , POP Pile avvengono in tempo costante.
+
+IMPLEMENTAZIONE CODA CON ARRAY
+
+METODO ENQUEUE , inserisce un elemento alla fine (IMPLEMENTATO)
+Metodo isFull() , isEmpty() (IMPLEMENTATI)
+
+RECUPERARE ULTIMA PARTE DELLE CODE per ricavare e spostarsi tra elementi partendo da head e tail.
+
+Ricavare nElem da HEAD e TAIL :
+(t-h)+1 quando h < t
+
+se t < h 
+
+FORMA UNIFICATA PER CALCOLARE NUMERO ELEMENTI
+CON HEAD E TAIL
+ h < t
+ t < h 
+len-(((len-(tail-head))-1)%len) //POSSIBILE SOLUZIONE
+
+IMPLEMENTAZIONE PILA STACK.H
+COSTRUTTORE (IMPLEMENTATO)
+POP (IMPLEMENTATO)
+PUSH (IMPLEMENTATO)
+
+METODO DI STAMPA IMPLEMENTATO
