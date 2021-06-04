@@ -1,0 +1,90 @@
+ALBERI 26 Maggio 2021
+
+Un albero è un particolare tipo di grafo.
+Ha gli archi orientati
+
+Ogni nodo può avere al massimo un genitore.
+
+ARIETA' = numero massimo di figli che un genitore può avere
+
+Un albero con arieta' n si dice  albero n-ario.
+
+ALBERI BINARI , ogni nodo può avere massimo 2 figli.
+I nodi a destra del genitore si chiameranno figli-destri , 
+quelli a sinistra figli-sinistri.
+
+Il figlio destro del nodo più alto compone anche esso un albero idem
+per il figlio sinistro.(Ovviamente con le loro generazioni)
+
+           RADICE(root)            nodo più in alto
+SOTTOALBERO-DX , SOTTOALBERO-SX
+
+Un nodo che non ha figli è detto foglia (leaf)
+Una foglia è un albero con solo la radice.
+ 
+LVL 0 root                  2^0 arieta'^livello
+LVL 1 figli(root)           2^1
+LVL 2 figli(figli(root))    2^2
+
+L'albero si dice completo quando tutte le foglie non hanno figli.
+
+SOMMATORIA i=0 #livelli 2^i = n (numero nodi)
+h = log2 n (profondita')
+
+ALBERI BINARI DI RICERCA
+Binary Search Tree (BST)
+
+Per ogni nodo x avro' un figlio dx e sx ma anche sottoalbero dx e sx
+tutti i nodi nel sottoalbero SX di x devono essere <= x mentre tutti i nodi
+nel sottoalbero DX devono essere >= x
+
+Albero degenere , diventa una lista ordinata
+
+|h(left) - h(right)| > 1  quando si verifica questo l'albero non è bilanciato 
+
+MAX E MIN ALBERI BINARI DI RICERCA ORDINATI
+
+PREDECESSORE E SUCCESSORE ALBERI BINARI DI RICERCA
+PREDECESSORE = massimo nel sottoalbero sinistro del nodo stesso
+SUCCESSORE = minimo del sottoalbero destro del nodo stesso
+
+ATTRAVERSAMENTO O VISITA DI UN ALBERO
+Algoritmo che tocca tutti i nodi di un albero in un certo ordine
+
+InOrder(root) metodo restituisce l'insieme ordinato dei nodi
+if root == NIL return
+InOrder(root->left)  
+print (root)
+InOrder(root->right)
+Complessita' O(n) lineare nel caso peggiore
+
+SEARCH(root, val) --> più efficente
+if(root == val) return root
+else
+  if(val <= root ) SEARCH(root->left)
+  else SEARCH(root->right)
+
+ Complessita' O(log n) 
+
+IMPLEMENTAZIONE
+
+class NodeBST (Nodi degli alberi binari di ricerca)
+T key
+NodeBST *left
+NodeBST *right
+NodeBST *parent
+
+BST
+NodeBST *root
+--------------
+Search()
+InOrder()
+predecessor()
+successor()
+min()
+max()
+
+IMPLEMENTIAMO IN C++
+
+
+
