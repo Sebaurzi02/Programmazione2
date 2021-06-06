@@ -10,7 +10,7 @@ class Giocatore{
 	double punteggio;
 	
 	public:
-		Giocatore(string nome, string cognome, string circolo, string anno_nascita, double punteggio) : nome(nome), cognome(cognome), anno_nascita(anno_nascita), punteggio(punteggio){}
+		Giocatore(string nome, string cognome, string circolo, string anno_nascita, double punteggio) : nome(nome), cognome(cognome),circolo(circolo), anno_nascita(anno_nascita), punteggio(punteggio){}
 		
 		Giocatore() : Giocatore("","","","",0){}
 		
