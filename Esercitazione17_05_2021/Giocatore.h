@@ -2,6 +2,9 @@
 #define GIOCATORE_H
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -14,17 +17,46 @@ class Giocatore{
 		
 		Giocatore() : Giocatore("","","","",0){}
 		
-		string getNome() const { return nome;}
-		string getCognome() const { return cognome;}
-		string getCircolo() const { return circolo;}
-		string getAnno_nascita() const { return anno_nascita;}
-		double getPunteggio() const { return punteggio;}
-		
+		friend istream& operator>>(istream& in,Giocatore& g){
+			string punteggio_string;
+			stringstream A;
+			
+			getline(in,g.cognome,';');
+			getline(in,g.nome,';');
+			getline(in,g.circolo,';');
+			getline(in,punteggio_string,';');
+			getline(in,g.anno_nascita,'\n');
+			
+			A<<punteggio_string;
+			A>>g.punteggio;
+			A.clear();
+			
+			return in;
+		}
 		
 		friend ostream& operator<<(ostream& out, const Giocatore& g){
-			out<<"Giocatore -> Nome: "<<g.nome<<" Cognome: "<<g.cognome<<" Circolo: "<<g.circolo<<" Classe: "<<g.anno_nascita;
-			out<<"\t PUNTEGGIO-> "<<g.punteggio;
+			out<<"Giocatore -> Nome: "<<g.nome<<" Cognome: "<<g.cognome<<" Circolo: "<<g.circolo<<" Classe: "<<g.anno_nascita<<"  PUNTEGGIO-> "<<g.punteggio;
 			return out;
+		}
+		
+		bool operator>(const Giocatore& g) const{
+			return this->punteggio > g.punteggio;
+		}
+		
+		bool operator<(const Giocatore& g) const{
+			return this->punteggio < g.punteggio;
+		}
+		
+		bool operator>=(const Giocatore& g) const{
+			return this->punteggio >= g.punteggio;
+		}
+		
+		bool operator<=(const Giocatore& g) const{
+			return this->punteggio <= g.punteggio;
+		}
+		
+		bool operator==(const Giocatore& g) const{
+			return this->punteggio == g.punteggio;
 		}
 	
 	
