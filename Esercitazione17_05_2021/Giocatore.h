@@ -21,7 +21,7 @@ class Giocatore{
 		double getPunteggio() const { return punteggio;}
 		
 		
-		friend ostream& operator<<(ostream& out, const Giocatore g){
+		friend ostream& operator<<(ostream& out, const Giocatore& g){
 			out<<"Giocatore -> Nome: "<<g.nome<<" Cognome: "<<g.cognome<<" Circolo: "<<g.circolo<<" Classe: "<<g.anno_nascita;
 			out<<"\t PUNTEGGIO-> "<<g.punteggio;
 			return out;
